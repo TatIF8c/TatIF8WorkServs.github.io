@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <style>
+  
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+ </style>
+ 
+        <script>
+            
+const form=document.getElementById("cli");
+console.log(form);
+    
+   form.addEventListener("submit", (event) => {
+       
+   event.preventDefault();
+   const palabrasRegex=/^[a-zA-Z]+$/ ;
+   const correoRegex=/^[a-zA-Z0-9._-]{1,30}@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,3}+$/;
+   const telefonoRegex=/^[0-9]{9,10}+$/;
+   const numerosRegex=/^[0-9]{1,9999999999}+$/;
+    
+        let namecli=document.getElementById("name").value;
+        
+        if(!palabrasRegex.test(namecli)){
+            alert("Ingrese un formato de nombre valido");
+            return;
+        }
+        
+    
+        let mail=document.getElementById("correo").value;
+        
+        if(!correoRegex.test(mail)){
+            alert("Ingrese un formato de correo valido");
+            return;
+        }
+        
+    
+        let cel=document.getElementById("cel").value;
+        
+        if(!telefonoRegex.test(cel)){
+            alert("Ingrese un formato de numero valido");
+            return;
+        }
+        
+    
+        let saldo=document.getElementById("saldo").value;
+        
+        if(!palabrasRegex.test(namecli)){
+            alert("Ingrese un formato de saldo valido");
+            return;
+        }
+    
+       
+        form.submit();
+
+        }); 
+        
+        </script>
+    </head>
+    <body>
+        <h1>Bienvenido a la armeria los pingos</h1>
+        <br><br><br>
+        
+        <form action="registrarclienteserv" method="POST" id="cli"> 
+        <h1>Registrar cliente</h1> <br><br>
+        Nombre:<input type="text" name="name" id="name" required="" pattern="^[a-zA-Z]{1,40}+$">
+        Correo:<input type="text" name="correo" id="correo" required="" pattern="^[a-zA-Z0-9._-]{1,30}@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,3}$">
+        Telefono: <input type="text" name="cel" id="cel" required="" pattern="^[0-9]{8,11}$">
+        Saldo: <input type="text" name="saldo" id="saldo" required="" pattern="^[0-9]{1,9999999999}$">
+        <button type="submit">Registrar</button>
+        </form>
+        
+        <form  action="consultarusserv" method="POST">   
+        <h1>Consultar cliente</h1>
+        Nombre del cliente<input type="text" name="buscli">
+        <button type="submit">Buscar</button>
+        </form>
+        
+        <form action="produserv" method="POST"> 
+        <h1>Registrar producto</h1> <br><br>
+        Nombre del producto:<input type="text" name="producto" required="" pattern="^[a-zA-Z]{1,40}+$">
+        Precio del producto:<input type="text" name="presio" required="" pattern="^[0-9]{1,9999999999}$">
+        Existencias del producto:<input type="text" name="exis" required="" pattern="^[0-9]{1,9999999999}$">
+        <button type="submit">Registrar</button>
+        </form>
+       
+        
+        <form  action="consultarserv" method="POST">   
+        <h1>Consultar producto</h1>
+        Nombre del producto:<input type="text" name="bus">
+        <button type="submit">Buscar</button>
+        </form>
+                
+        <form  action="modificarserv" method="POST">   
+        <h1>Modifique un producto</h1>
+        Nombre del producto<input type="text" name="buspro">
+        Existencias a restar o sumar<input type="text" name="cantpro">
+
+        
+        <button type="submit">Buscar</button>
+        </form>
+        <form action="comprarserv" method="POST"> 
+        <h1>Comprar producto</h1>
+        Nombre del producto:<input type="text" name="busn">
+        Existencias que desea comprar:<input type="text" name="cant">
+        <button type="submit">Comprar</button>
+        </form>
+        
+        
+
+    </body>
+</html>

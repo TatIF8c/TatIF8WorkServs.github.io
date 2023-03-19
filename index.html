@@ -121,7 +121,7 @@ console.log(form);
         
         <form  action="consultarusserv" method="POST">   
         <h1>Consultar cliente</h1>
-        Nombre del cliente<input type="text" name="buscli">
+        Nombre del cliente<input type="text" name="buscli"  required="" pattern="^[a-zA-Z]{1,40}+$">
         <button type="submit">Buscar</button>
         </form>
         
@@ -136,22 +136,22 @@ console.log(form);
         
         <form  action="consultarserv" method="POST">   
         <h1>Consultar producto</h1>
-        Nombre del producto:<input type="text" name="bus">
+        Nombre del producto:<input type="text" name="bus"  required="" pattern="^[a-zA-Z]{1,40}+$">
         <button type="submit">Buscar</button>
         </form>
                 
         <form  action="modificarserv" method="POST">   
         <h1>Modifique un producto</h1>
-        Nombre del producto<input type="text" name="buspro">
-        Existencias a restar o sumar<input type="text" name="cantpro">
+        Nombre del producto<input type="text" name="buspro"  required="" pattern="^[a-zA-Z]{1,40}+$">
+        Existencias a restar o sumar<input type="text" name="cantpro" required="" pattern="^[0-9]{1,9999999999}$">
 
         
         <button type="submit">Buscar</button>
         </form>
         <form action="comprarserv" method="POST"> 
         <h1>Comprar producto</h1>
-        Nombre del producto:<input type="text" name="busn">
-        Existencias que desea comprar:<input type="text" name="cant">
+        Nombre del producto:<input type="text" name="busn"  required="" pattern="^[a-zA-Z]{1,40}+$">
+        Existencias que desea comprar:<input type="text" name="cant" required="" pattern="^[0-9]{1,9999999999}$">
         <button type="submit">Comprar</button>
         </form>
         
